@@ -30,6 +30,7 @@ We appreciate and recognize all contributors.
   - [Clone the repository](#clone-the-repository)
   - [Create a branch](#create-a-branch)
   - [Make necessary changes](#make-necessary-changes-1)
+  - [Identifying Documentation Source](#identifying-documentation-source)
 - [Test in Local and Push Changes to GitHub](#test-in-local-and-push-changes-to-github)
   - [Prerequisites](#prerequisites)
   - [Test your changes locally](#test-your-changes-locally)
@@ -86,6 +87,19 @@ git checkout -b issue-329
 ## Make necessary changes
 
 Now, you can suggest contributions, make necessary changes to existing files, or add new files.
+
+## Identifying Documentation Source
+
+Some docs under [open-horizon.github.io/docs](https://github.com/open-horizon/open-horizon.github.io/tree/master/docs) can have its source in different repo.
+
+The way you can tell if the source is in this repo or another is by the URL path. If the source is in different repo then sourced repo name is used under docs. 
+
+For example, if a doc is in `anax/docs` the URI will be ` /docs/anax/docs`. It is sourced from `anax` repo (i.e https://github.com/open-horizon/anax/tree/master/docs) 
+Likewise `devops/docs` can be found in `/docs/mgmt-hub/docs`. (i.e https://github.com/open-horizon/mgmt-hub/tree/master/docs) 
+
+Any changes to docs sourced from another repo should made in corresponding repo. 
+
+`CopyDocs GitHub Action` which will trigger on a PR merge and the file will be copied over to the `open-horizon.github.io` repo.
 
 # Test in local and push changes to GitHub
 

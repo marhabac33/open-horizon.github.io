@@ -36,7 +36,7 @@ Review the following questions when you encounter an issue with {{site.data.keyw
 - [Troubleshooting node errors](#troubleshooting_node_errors)
 - [How to uninstall Podman on RHEL?](#uninstall_podman)
 - [Are you encountering HTTP error, while executing deploy-mgmt-hub.sh?](#deploy_mgmt_http_error)
-
+- [How documentation are sourced across repositories and how to correctly modify them?](#docs_source_explanation)
 ## Are the currently released versions of the {{site.data.keyword.horizon}} packages installed?
 {: #install_horizon}
 
@@ -503,6 +503,20 @@ If you see this error at the end of the cluster agent-install process or while t
    for i in `oc get csr |grep Pending |awk '{print $1}'`; do oc adm certificate approve $i; done
    ```
    {: codeblock}
+
+## How documentation are sourced across repositories and how to correctly modify them?
+{: #docs_source_explanation}
+
+Some docs under [open-horizon.github.io/docs](https://github.com/open-horizon/open-horizon.github.io/tree/master/docs) can have its source in different repo.
+
+The way you can tell if the source is in this repo or another is by the URL path. If the source is in different repo then sourced repo name is used under docs.
+
+For example, if a doc is in `anax/docs` the URI will be ` /docs/anax/docs`. It is sourced from `anax` repo (i.e https://github.com/open-horizon/anax/tree/master/docs)
+Likewise `devops/docs` can be found in `/docs/mgmt-hub/docs`. (i.e https://github.com/open-horizon/mgmt-hub/tree/master/docs)
+
+Any changes to docs sourced from another repo should made in corresponding repo.
+
+`CopyDocs GitHub Action` which will trigger on a PR merge and the file will be copied over to the `open-horizon.github.io` repo.
 
 ### Additional information
 
